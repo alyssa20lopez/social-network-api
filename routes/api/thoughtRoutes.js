@@ -1,17 +1,17 @@
 const router = require('express').Router();
 const {
-  getThought,
-  createThought,
+  getThoughts,
   getSingleThought,
-  updateThought,
+  createThought,
   deleteThought,
+  updateThought,
   createReaction,
   deleteReaction
-} = require('../../controllers/courseController.js');
+} = require('../../controllers/thoughtController.js');
 
 // /api/thoughts
 router.route('/')
-.get(getThought)
+.get(getThoughts)
 .post(createThought);
 
 // /api/thoughts/:thoughtId
@@ -24,7 +24,7 @@ router.route('/:thoughtId/reactions')
 .post(createReaction);
 
 // /api/users/:userId/assignments/:assignmentId
-router.route('/:thoughtId/reactions/:reaction')
+router.route('/:thoughtId/reactions/:reactionId')
 .delete(deleteReaction);
 
 module.exports = router;
